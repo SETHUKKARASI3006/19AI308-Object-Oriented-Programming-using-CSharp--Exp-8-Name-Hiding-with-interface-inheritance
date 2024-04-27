@@ -1,36 +1,31 @@
 using System;
-
-// Define the IMario interface
+using System.IO;
 public interface IMario
 {
- 
+    void Ability();
 }
-
-// Implement the IMario interface in the Mario class
-public class Mario : IMario
+class Mario:IMario
 {
     public virtual void Ability()
     {
-  
+        Console.WriteLine("This is inside Mario Class");
     }
 }
-
-// SuperMario class that inherits from Mario and hides the Ability() method
-public class SuperMario : Mario
+class SuperMario:Mario
 {
     public new void Ability()
     {
-    
+        Console.WriteLine("This is inside SuperMario");
     }
 }
-
-class Program
+public class MarioGame
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-       
+        SuperMario s = new SuperMario();
+        s.Ability();
+        Mario m = new Mario();
+        m.Ability();
 
-       
     }
 }
-
